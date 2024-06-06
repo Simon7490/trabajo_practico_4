@@ -8,23 +8,23 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <!-- Encabezado -->
+
     <div data-th-replace="layouts/header :: header"></div>
     
-    <!-- Contenido Principal -->
+
     <div class="container mt-4">
         <div class="row">
-            <!-- Barra Lateral -->
+
             <aside class="col-md-3">
                 <ul class="list-group">
-                    <li class="list-group-item"><a th:href="@{/biblioteca}" th:text="#{menu.bi}">Biblioteca</a></li>
-                    <li class="list-group-item"><a th:href="@{/calendario}" th:text="#{menu.cal}">Calendario académico</a></li>
+                    <li class="list-group-item"><a href="biblioteca.html" th:text="#{menu.bi}">Biblioteca</a></li>
+                    <li class="list-group-item"><a href="calendario.html" th:text="#{menu.cal}">Calendario académico</a></li>
                 </ul>
             </aside>
             
-            <!-- Sección de Contenido -->
+
             <main class="col-md-9">
-                <!-- Sección Acerca de -->
+
                 <section id="acerca" class="mt-4">
                     <h2 th:text="#{sec.acerca}">Acerca de la Facultad</h2>
                     <p th:text="${descripFacu}">La Facultad de Ingeniería de la Universidad Nacional de Jujuy (UNJu) se dedica a la formación de profesionales en diversas ramas de la ingeniería. Inicialmente centrada en Ingeniería de Minas, Ingeniería Metalúrgica e Ingeniería Química, ha ampliado su oferta académica con el tiempo. La facultad se destaca por su excelencia académica, investigación y desarrollo tecnológico, y busca responder a la demanda social de formación de recursos humanos que contribuyan al desarrollo científico, tecnológico y cultural de la región.</p>
@@ -39,18 +39,28 @@
 					</p>
 				</section>
                 
-                <!-- Sección Carreras -->
+
                 <section id="carreras" class="mt-4">
                     <h2 th:text="#{sec.carreras}">Carreras</h2>
                     <p>Conoce nuestras carreras:</p>
                     <ul>
-                        <li><a th:href="@{/carrera/minas}" th:text="#{carreras.minas}">Ingeniería de Minas</a></li>
+                        
                         <li><a th:href="@{/carrera/Apu}" th:text="#{carreras.apu}">Analista Programador Universitario</a></li>
                         <li><a th:href="@{/carrera/quimica}" th:text="#{carreras.quimica}">Ingeniería Química</a></li>
+						<li><a th:href="@{/carrera/industrial}" th:text="#{carreras.industrial}">Ingeniería Industrial</a></li>
+						<li><a th:href="@{/carrera/minas}" th:text="#{carreras.minas}">Ingeniería de Minas</a></li>
+						<li><a th:href="@{/carrera/informatica}" th:text="#{carreras.informatica}">Ingeniería Informática</a></li>
+						<li><a th:href="@{/carrera/geologia}" th:text="#{carreras.geologia}">Licenciatura en Ciencias Geológicas</a></li>
+						<li><a th:href="@{/carrera/sistemas}" th:text="#{carreras.sistemas}">Licenciatura en Sistemas</a></li>
+						<li><a th:href="@{/carrera/alimentos}" th:text="#{carreras.alimentos}">Licenciatura en Tecnología de los Alimentos</a></li>
+						<li><a th:href="@{/carrera/gerencia}" th:text="#{carreras.gerencia}">Especialización en Gerencia y Vinculación Tecnológica</a></li>
+						<li><a th:href="@{/carrera/docencia}" th:text="#{carreras.docencia}">Especialista en Docencia Superior</a></li>
+						<li><a th:href="@{/carrera/matematicas}" th:text="#{carreras.matematicas}">Licenciatura en Enseñanza de las Matemáticas - Química</a></li>
+
                     </ul>
                 </section>
                 
-                <!-- Sección Noticias -->
+
                 <section id="noticias" class="mt-4">
                     <h2 th:text="#{sec.noti}">Noticias Recientes</h2>
                     <ul>
@@ -61,7 +71,7 @@
                     </ul>
                 </section>
                 
-                <!-- Sección Contacto -->
+
                 <section id="contacto" class="mt-4">
                     <h2 th:text="#{sec.contacto}">Contacto</h2>
                     <p>Para más información, contacta con nosotros:</p>
