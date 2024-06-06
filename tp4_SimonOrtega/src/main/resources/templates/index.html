@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facultad de Ingeniería</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Encabezado -->
+    <header class="bg-primary text-white text-center py-3">
+        <img src="logofac.png" alt="Logotipo de la Facultad" class="img-fluid" style="max-width: 1000px;">
+        <h1 th:text="${nomFacu}">Facultad de Ingeniería</h1>
+        <p th:text="${lemaFacu}">"proyectando el futuro en la formación de profesionales"</p>
+    </header>
+    
+    <!-- Barra de Navegación -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" th:href="#inicio" th:text="${nomFacu}">Facultad</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#inicio" th:text="#{menu.inicio}">Inicio <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#acerca" th:text="#{menu.acerca}">Acerca de</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#carreras" th:text="#{menu.carreras}">Carreras</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#noticias" th:text="#{menu.noticias}">Noticias</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contacto" th:text="#{menu.contacto}">Contacto</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Contenido Principal -->
+    <div class="container mt-4">
+        <div class="row">
+            <!-- Barra Lateral -->
+            <aside class="col-md-3">
+                <ul class="list-group">
+                    <li class="list-group-item"><a th:href="@{/biblioteca}" th:text="#{menu.bi}">Biblioteca</a></li>
+                    <li class="list-group-item"><a th:href="@{/calendario}" th:text="#{menu.cal}">Calendario académico</a></li>
+                </ul>
+            </aside>
+            
+            <!-- Sección de Contenido -->
+            <main class="col-md-9">
+                <!-- Sección Acerca de -->
+                <section id="acerca" class="mt-4">
+                    <h2 th:text="#{sec.acerca}">Acerca de la Facultad</h2>
+                    <p th:text="${descripFacu}">La Facultad de Ingeniería de la Universidad Nacional de Jujuy (UNJu) se dedica a la formación de profesionales en diversas ramas de la ingeniería. Inicialmente centrada en Ingeniería de Minas, Ingeniería Metalúrgica e Ingeniería Química, ha ampliado su oferta académica con el tiempo. La facultad se destaca por su excelencia académica, investigación y desarrollo tecnológico, y busca responder a la demanda social de formación de recursos humanos que contribuyan al desarrollo científico, tecnológico y cultural de la región.</p>
+                    <p th:text="${descripFacu}">De esta forma, la Facultad se constituyó en vector de desarrollo de la provincia, por cuanto:
+					    Posibilita la prosecución de estudios superiores a los jóvenes egresados del nivel medio, facilitando a un número creciente de ellos la obtención de un título universitario, sin los inconvenientes del desarraigo que tradicionalmente debían afrontar al trasladarse a centros universitarios radicados en otras provincias.
+					    Por ende, aporta a la economía provincial al evitar la salida de recursos económicos asociados con la radicación de estudiantes en otras provincias.
+					    Posibilita acceder a títulos universitarios a jóvenes cuya situación económica les impide estudiar fuera de la provincia.
+					    Provee de profesionales de la Ingeniería a las industrias radicadas en la provincia y de profesionales competentes a las diversas reparticiones del estado provincial.
+					    Incorpora a la sociedad profesionales aptos para generar emprendimientos de distinta índole.
+					    Mantiene fluidas relaciones institucionales con el sector productivo, las ONG, el ámbito educativo y la administración pública provincial mediante prestaciones de servicios, el desarrollo de actividades de investigación científica y tecnológica, y la formación y capacitación de recursos humanos. A la vez, dentro de este marco, promueve sistemas de pasantías para sus docentes y alumnos.
+					En la actualidad, las particularidades geopolíticas del área de influencia de la Facultad le otorgan una importante proyección internacional; proyección nacida tanto por el impacto regional producido por la globalización y en particular por los acuerdos suscriptos por nuestro país en el marco del Mercosur, como por la habilitación de nuevos pasos fronterizos en la provincia los cuales la integran regionalmente mediante el corredor bioceánico. Esta realidad permite que Jujuy pase de ser una provincia muy alejada de los puertos argentinos a otra que está sobre la línea de unión entre los puertos comerciales del norte de Chile con los de Brasil. Por ende, de disponer como única salida comercial el puerto de Buenos Aires a 1700 km, ahora está a tan sólo 700 km del de Antofagasta (Chile). Todo ello constituye a la vez una oportunidad y un desafío para la economía regional, y en consecuencia para la Facultad.
+					</p>
+				</section>
+                
+                <!-- Sección Carreras -->
+                <section id="carreras" class="mt-4">
+                    <h2 th:text="#{sec.carreras}">Carreras</h2>
+                    <p>Conoce nuestras carreras:</p>
+                    <ul>
+                        <li><a th:href="@{/carrera/minas}" th:text="#{carreras.minas}">Ingeniería de Minas</a></li>
+                        <li><a th:href="@{/carrera/metalurgica}" th:text="#{carreras.metalurgica}">Ingeniería Metalúrgica</a></li>
+                        <li><a th:href="@{/carrera/quimica}" th:text="#{carreras.quimica}">Ingeniería Química</a></li>
+                    </ul>
+                </section>
+                
+                <!-- Sección Noticias -->
+                <section id="noticias" class="mt-4">
+                    <h2 th:text="#{sec.noti}">Noticias Recientes</h2>
+                    <ul>
+                        <li th:each="noticia : ${noticias}">
+                            <span th:text="${noticia.titulo}">Paro de docentes</span>
+                            <p th:text="${noticia.descripcion}">los dias 05-06-07 del presente mes, varios docentes suspenden las actividades.</p>
+                        </li>
+                    </ul>
+                </section>
+                
+                <!-- Sección Contacto -->
+                <section id="contacto" class="mt-4">
+                    <h2 th:text="#{sec.contacto}">Contacto</h2>
+                    <p>Para más información, contacta con nosotros:</p>
+                    <form th:action="@{/enviarMensaje}" method="post">
+                        <div class="form-group">
+                            <label for="nombre" th:text="#{contacto.nombre}">Nombre:</label>
+                            <input type="text" class="form-control" id="nombre" name="nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" th:text="#{contacto.email}">Email:</label>
+                            <input type="email" class="form-control" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="mensaje" th:text="#{contacto.mensaje}">Mensaje:</label>
+                            <textarea class="form-control" id="mensaje" name="mensaje" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" th:text="#{contacto.enviar}">Enviar</button>
+                    </form>
+                </section>
+            </main>
+        </div>
+    </div>
+    
+    <!-- Pie de Página -->
+    <footer class="bg-dark text-white text-center py-3 mt-4">
+        <p th:text="${direccion}">Dirección: Ítalo Palanca Nº 10 San Salvador de Jujuy - Argentina</p>
+        <a href="https://www.fi.unju.edu.ar/servicios/telefonos.html" class="text-white">Teléfono</a>
+        <p th:text="${email}">Email: info@fi.unju.edu.ar</p>
+        <div>
+            <a href="https://www.facebook.com/fiunju/" class="text-white">Facebook</a> | 
+            <a href="https://www.youtube.com/channel/UCgS9XJlKKSYI1oJ4lIOo77A" class="text-white">YouTube</a> | 
+            <a href="https://www.instagram.com/fiunju/" class="text-white">Instagram</a>
+        </div>
+        <p th:text="#{footer.derechos}">&copy; 2024 Facultad de Ingeniería - Simon Ortega.</p>
+    </footer>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
