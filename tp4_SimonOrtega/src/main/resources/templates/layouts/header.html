@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <!-- Encabezado -->
+    <header class="bg-primary text-white text-center py-3">
+        <img th:src="@{/imgs/logofac.png}" alt="Logotipo de la Facultad" class="img-fluid" style="max-width: 100px;">
+        <h1 th:text="${nomFacu}">Facultad de Ingeniería</h1>
+        <p th:text="${lemaFacu}">"proyectando el futuro en la formación de profesionales"</p>
+    </header>
+    
+    <!-- Barra de Navegación -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" th:href="#inicio" th:text="${nomFacu}">Facultad</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#inicio" th:text="#{menu.inicio}">Inicio <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#acerca" th:text="#{menu.acerca}">Acerca de</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#carreras" th:text="#{menu.carreras}">Carreras</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#noticias" th:text="#{menu.noticias}">Noticias</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contacto" th:text="#{menu.contacto}">Contacto</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</body>
+</html>
