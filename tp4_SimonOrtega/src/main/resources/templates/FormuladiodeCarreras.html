@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.3/css/bootstrap.min.css}">
+    <title>Formulario de Carreras</title>
+</head>
+<body class="bg-dark text-white">
+    <div data-th-replace="layout/header :: header"></div>
+    
+    <div class="container mt-4">
+        <h1 class="p-2">Formilario Carrera</h1>
+        <form th:object="${nuevaCarrera}" th:action="${flag}?@{/modificarCarrera}:@{/guardarCarrera}" method="post" class="p-2">
+            <div class="col-6">
+                <label for="codigo" class="form-label">Código</label> 
+                <input type="text" class="form-control bg-dark text-white" id="codigo" th:field="*{codigo}" th:readonly="${flag}" required>                
+            </div>
+            <div class="col-6">
+                <label for="nombre" class="form-label">Nombre Carrera</label>
+                <input type="text" class="form-control bg-dark text-white" id="nombre" th:field="*{nombre}" required>
+            </div>
+            <div class="col-6">
+                <label for="cantidad" class="form-label">Cantidad Años</label>
+                <input type="number" class="form-control bg-dark text-white" id="cantidad" th:field="*{cantidadAnios}">
+            </div><br>
+            <button type="submit" class="btn btn-primary">Guardar Carrera</button>
+        </form>
+    </div>
+    
+    <div data-th-replace="layout/footer :: footer"></div>
+    
+    <script th:src="@{/webjars/bootstrap/5.3.3/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

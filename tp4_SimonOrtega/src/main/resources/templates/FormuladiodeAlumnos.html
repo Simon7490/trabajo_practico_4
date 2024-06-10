@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.3/css/bootstrap.min.css}">
+    <title>Formulario de Alumnos</title>
+</head>
+<body class="bg-dark text-white">
+    <div data-th-replace="layout/header :: header"></div>
+    
+    <div class="container mt-4">
+        <h1 class="p-2">Formulario Alumno</h1>
+        <form th:object="${nuevoAlumno}" th:action="${flag}?@{/modificarAlumno}:@{/guardarAlumno}" method="post" class="p-2">
+            <div class="col-6">
+                <label for="dni" class="form-label">Dni</label> 
+                <input type="text" class="form-control bg-dark text-white" id="dni" th:field="*{dni}" th:readonly="${flag}" required>                
+            </div>
+            <div class="col-6">
+                <label for="nombre" class="form-label">Nombre</label>
+                <input type="text" class="form-control bg-dark text-white" id="nombre" th:field="*{nombre}" required>
+            </div>
+            <div class="col-6">
+                <label for="apellido" class="form-label">Apellido</label>
+                <input type="text" class="form-control bg-dark text-white" id="apellido" th:field="*{apellido}" required>
+            </div>
+            <div class="col-6">
+                <label for="email" class="form-label">G-mail</label>
+                <input type="email" class="form-control bg-dark text-white" id="email" th:field="*{email}" required>
+            </div>
+            <div class="col-6">
+                <label for="telefono" class="form-label">Teléfono</label>
+                <input type="text" class="form-control bg-dark text-white" id="telefono" th:field="*{telefono}" required>
+            </div>
+            <div class="col-6">
+                <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento</label>
+                <input type="date" class="form-control bg-dark text-white" id="fechaNacimiento" th:field="*{fechaNacimiento}" required>
+            </div>
+            <div class="col-6">
+                <label for="domicilio" class="form-label">Domicilio</label>
+                <input type="text" class="form-control bg-dark text-white" id="domicilio" th:field="*{domicilio}" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Guardar Alumno</button>
+        </form>
+    </div>
+    
+    <div data-th-replace="layout/footer :: footer"></div>
+    
+    <script th:src="@{/webjars/bootstrap/5.3.3/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>
