@@ -7,8 +7,9 @@
     <title>Formulario Materias</title>
 </head>
 <body class="bg-dark text-white">
-    <div data-th-replace="layout/header :: header"></div>
-    
+	<header>
+	        <div data-th-replace="~{layouts/header::navbar}"></div>
+	    </header>    
     <div class="container mt-4">
         <h1 class="p-2">Formulario Materia </h1>
         <form th:object="${nuevaMateria}" th:action="${flag}?@{/modificarMateria}:@{/guardarMateria}" method="post" class="p-2">
@@ -53,8 +54,12 @@
         </form>
     </div>
     
-    <div data-th-replace="layout/footer :: footer"></div>
-    
-    <script th:src="@{/webjars/bootstrap/5.3.3/js/bootstrap.bundle.min.js}"></script>
+	<footer class="mt-5">
+	    <div data-th-replace="~{layouts/footer::footer}"></div>
+	</footer>
+	
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.3/js/bootstrap.min.js"></script>
 </body>
 </html>
