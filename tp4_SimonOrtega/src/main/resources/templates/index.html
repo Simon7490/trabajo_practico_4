@@ -2,54 +2,48 @@
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Facultad de Ingeniería</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <div data-th-replace="layouts/header :: header"></div>
-    
-    <div class="container mt-4">
-        <div class="row">
-            <aside class="col-md-3">
-                <ul class="list-group">
-                    <li class="list-group-item"><a th:href="@{/biblioteca}" th:text="#{menu.bi}">Biblioteca</a></li>
-                    <li class="list-group-item"><a th:href="@{/calendario}" th:text="#{menu.cal}">Calendario académico</a></li>
-                </ul>
-            </aside>
-            
-            <main class="col-md-9">
+    <header>
+        <div th:replace="~{fragments/header :: header}"></div>    
+    </header>
+
+    <div id="inicio" class="container mt-4">
+        <main class="col-md-9">
+            <div id="principal" class="row">            
                 <section id="acerca" class="mt-4">
                     <h2 th:text="#{sec.acerca}">Acerca de la Facultad</h2>
                     <p th:text="${descripFacu}">La Facultad de Ingeniería de la Universidad Nacional de Jujuy (UNJu) se dedica a la formación de profesionales en diversas ramas de la ingeniería. Inicialmente centrada en Ingeniería de Minas, Ingeniería Metalúrgica e Ingeniería Química, ha ampliado su oferta académica con el tiempo. La facultad se destaca por su excelencia académica, investigación y desarrollo tecnológico, y busca responder a la demanda social de formación de recursos humanos que contribuyan al desarrollo científico, tecnológico y cultural de la región.</p>
                     <p th:text="${descripFacu}">De esta forma, la Facultad se constituyó en vector de desarrollo de la provincia, por cuanto:
-					    Posibilita la prosecución de estudios superiores a los jóvenes egresados del nivel medio, facilitando a un número creciente de ellos la obtención de un título universitario, sin los inconvenientes del desarraigo que tradicionalmente debían afrontar al trasladarse a centros universitarios radicados en otras provincias.
-					    Por ende, aporta a la economía provincial al evitar la salida de recursos económicos asociados con la radicación de estudiantes en otras provincias.
-					    Posibilita acceder a títulos universitarios a jóvenes cuya situación económica les impide estudiar fuera de la provincia.
-					    Provee de profesionales de la Ingeniería a las industrias radicadas en la provincia y de profesionales competentes a las diversas reparticiones del estado provincial.
-					    Incorpora a la sociedad profesionales aptos para generar emprendimientos de distinta índole.
-					    Mantiene fluidas relaciones institucionales con el sector productivo, las ONG, el ámbito educativo y la administración pública provincial mediante prestaciones de servicios, el desarrollo de actividades de investigación científica y tecnológica, y la formación y capacitación de recursos humanos. A la vez, dentro de este marco, promueve sistemas de pasantías para sus docentes y alumnos.
-					En la actualidad, las particularidades geopolíticas del área de influencia de la Facultad le otorgan una importante proyección internacional; proyección nacida tanto por el impacto regional producido por la globalización y en particular por los acuerdos suscriptos por nuestro país en el marco del Mercosur, como por la habilitación de nuevos pasos fronterizos en la provincia los cuales la integran regionalmente mediante el corredor bioceánico. Esta realidad permite que Jujuy pase de ser una provincia muy alejada de los puertos argentinos a otra que está sobre la línea de unión entre los puertos comerciales del norte de Chile con los de Brasil. Por ende, de disponer como única salida comercial el puerto de Buenos Aires a 1700 km, ahora está a tan sólo 700 km del de Antofagasta (Chile). Todo ello constituye a la vez una oportunidad y un desafío para la economía regional, y en consecuencia para la Facultad.
-					</p>
-				</section>
+                        Posibilita la prosecución de estudios superiores a los jóvenes egresados del nivel medio, facilitando a un número creciente de ellos la obtención de un título universitario, sin los inconvenientes del desarraigo que tradicionalmente debían afrontar al trasladarse a centros universitarios radicados en otras provincias.
+                        Por ende, aporta a la economía provincial al evitar la salida de recursos económicos asociados con la radicación de estudiantes en otras provincias.
+                        Posibilita acceder a títulos universitarios a jóvenes cuya situación económica les impide estudiar fuera de la provincia.
+                        Provee de profesionales de la Ingeniería a las industrias radicadas en la provincia y de profesionales competentes a las diversas reparticiones del estado provincial.
+                        Incorpora a la sociedad profesionales aptos para generar emprendimientos de distinta índole.
+                        Mantiene fluidas relaciones institucionales con el sector productivo, las ONG, el ámbito educativo y la administración pública provincial mediante prestaciones de servicios, el desarrollo de actividades de investigación científica y tecnológica, y la formación y capacitación de recursos humanos. A la vez, dentro de este marco, promueve sistemas de pasantías para sus docentes y alumnos.
+                        En la actualidad, las particularidades geopolíticas del área de influencia de la Facultad le otorgan una importante proyección internacional; proyección nacida tanto por el impacto regional producido por la globalización y en particular por los acuerdos suscriptos por nuestro país en el marco del Mercosur, como por la habilitación de nuevos pasos fronterizos en la provincia los cuales la integran regionalmente mediante el corredor bioceánico. Esta realidad permite que Jujuy pase de ser una provincia muy alejada de los puertos argentinos a otra que está sobre la línea de unión entre los puertos comerciales del norte de Chile con los de Brasil. Por ende, de disponer como única salida comercial el puerto de Buenos Aires a 1700 km, ahora está a tan sólo 700 km del de Antofagasta (Chile). Todo ello constituye a la vez una oportunidad y un desafío para la economía regional, y en consecuencia para la Facultad.
+                    </p>
+                </section>
                 
                 <section id="carreras" class="mt-4">
                     <h2 th:text="#{sec.carreras}">Carreras</h2>
                     <p>Conoce nuestras carreras:</p>
                     <ul>
                         <li><a th:href="@{/carrera/Apu}" th:text="#{carreras.apu}">Analista Programador Universitario</a></li>
-						<li><a th:href="@{/carrera/industrial}" th:text="#{carreras.industrial}">Ingeniería Industrial</a></li>
-						<li><a th:href="@{/carrera/minas}" th:text="#{carreras.minas}">Ingeniería de Minas</a></li>
-						<li><a th:href="@{/carrera/informatica}" th:text="#{carreras.informatica}">Ingeniería Informática</a></li>
-						<li><a th:href="@{/carrera/quimica}" th:text="#{carreras.quimica}">Ingeniería Química</a></li>
-						<li><a th:href="@{/carrera/geologia}" th:text="#{carreras.geologia}">Licenciatura en Ciencias Geológicas</a></li>
-						<li><a th:href="@{/carrera/sistemas}" th:text="#{carreras.sistemas}">Licenciatura en Sistemas</a></li>
-						<li><a th:href="@{/carrera/alimentos}" th:text="#{carreras.alimentos}">Licenciatura en Tecnología de los Alimentos</a></li>
-						<li><a th:href="@{/carrera/gerencia}" th:text="#{carreras.gerencia}">Especialización en Gerencia y Vinculación Tecnológica</a></li>
-						<li><a th:href="@{/carrera/docencia}" th:text="#{carreras.docencia}">Especialista en Docencia Superior</a></li>
-						<li><a th:href="@{/carrera/matematicas}" th:text="#{carreras.matematicas}">Licenciatura en Enseñanza de las Matemáticas - Química</a></li>
-					</ul>
+                        <li><a th:href="@{/carrera/industrial}" th:text="#{carreras.industrial}">Ingeniería Industrial</a></li>
+                        <li><a th:href="@{/carrera/minas}" th:text="#{carreras.minas}">Ingeniería de Minas</a></li>
+                        <li><a th:href="@{/carrera/informatica}" th:text="#{carreras.informatica}">Ingeniería Informática</a></li>
+                        <li><a th:href="@{/carrera/quimica}" th:text="#{carreras.quimica}">Ingeniería Química</a></li>
+                        <li><a th:href="@{/carrera/geologia}" th:text="#{carreras.geologia}">Licenciatura en Ciencias Geológicas</a></li>
+                        <li><a th:href="@{/carrera/sistemas}" th:text="#{carreras.sistemas}">Licenciatura en Sistemas</a></li>
+                        <li><a th:href="@{/carrera/alimentos}" th:text="#{carreras.alimentos}">Licenciatura en Tecnología de los Alimentos</a></li>
+                        <li><a th:href="@{/carrera/gerencia}" th:text="#{carreras.gerencia}">Especialización en Gerencia y Vinculación Tecnológica</a></li>
+                        <li><a th:href="@{/carrera/docencia}" th:text="#{carreras.docencia}">Especialista en Docencia Superior</a></li>
+                        <li><a th:href="@{/carrera/matematicas}" th:text="#{carreras.matematicas}">Licenciatura en Enseñanza de las Matemáticas - Química</a></li>
+                    </ul>
                 </section>
                 
                 <section id="noticias" class="mt-4">
@@ -57,7 +51,7 @@
                     <ul>
                         <li th:each="noticia : ${noticias}">
                             <span th:text="${noticia.titulo}">Paro de docentes</span>
-                            <p th:text="${noticia.descripcion}">los dias 05-06-07 del presente mes, varios docentes suspenden las actividades.</p>
+                            <p th:text="${noticia.descripcion}">Los días 05-06-07 del presente mes, varios docentes suspenden las actividades.</p>
                         </li>
                     </ul>
                 </section>
@@ -81,16 +75,16 @@
                         <button type="submit" class="btn btn-primary" th:text="#{contacto.enviar}">Enviar</button>
                     </form>
                 </section>
-            </main>
-        </div>
+            </div>
+        </main>
     </div>
-    
 
-	<div data-th-replace="layouts/footer :: footer"></div>>
-    
+    <footer>
+        <div th:replace="~{fragments/footer :: footer}"></div>
+    </footer>
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
-
